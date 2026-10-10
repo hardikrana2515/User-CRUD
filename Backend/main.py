@@ -1,25 +1,27 @@
-import os
-from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI,Query,HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
-from schema import User, Create_user, Update_user
+from schema import User,Create_user,Update_user
 from db import supabase
+import os
+import json
+from dotenv import load_dotenv
 
 load_dotenv()
 
-
 app = FastAPI()
+
+# Parse CORS origins from environment variable
+cors_origins = json.loads(os.getenv('URL', '["http://localhost:5173"]'))
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        os.getenv("URL")
-    ],
+    allow_origins=os.getenv('URL'),
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
+ )
 
 
 
