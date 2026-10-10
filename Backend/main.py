@@ -3,8 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from datetime import datetime
 from schema import User,Create_user,Update_user
 from db import supabase
-import os
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -12,12 +10,11 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=cors_origins,
-     allow_credentials=True,
-     allow_methods=["*"],
-     allow_headers=["*"],
+    allow_origins=os.getenv('URL'),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
 
 
 
