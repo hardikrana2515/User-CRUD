@@ -1,0 +1,29 @@
+# Environment variables (secrets)
+.env
+
+# Virtual environment
+myenv/
+venv/
+.venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Node.js
+node_modules/
+
+# Build output
+Frontend/dist/
+
+# IDE / Editor
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Old JSON data (now in Supabase)
+user.json

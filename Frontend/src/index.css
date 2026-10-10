@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/GeistVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMonoVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-primary-light: #d1fae5;
+  --color-surface: #141419;
+  --color-surface-alt: #1c1c24;
+  --color-surface-hover: #24242e;
+  --color-border: #2a2a36;
+  --color-text: #e4e4eb;
+  --color-text-muted: #7a7a8e;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+  --color-warning: #f59e0b;
+  --color-admin: #8b5cf6;
+  --color-member: #3b82f6;
+  --color-viewer: #14b8a6;
+  --font-sans: 'Geist', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: #0c0c14;
+    color: var(--color-text);
+    min-height: 100vh;
+  }
+}

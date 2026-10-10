@@ -1,0 +1,39 @@
+0services:
+  # Full-Stack unified container (production-ready)
+  app:
+    build:
+      context: .
+      target: production
+    container_name: user-crud-app
+    ports:
+      - "80:80"
+      - "8000:8000"
+    env_file:
+      - ./Backend/.env
+    restart: unless-stopped
+
+  # Alternatively: Run backend standalone if desired
+  backend:
+    build:
+      context: .
+      target: backend
+    container_name: user-crud-backend
+    profiles: [ "dev" ]
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./Backend/.env
+    restart: unless-stopped
+
+  # Alternatively: Run frontend standalone if desired
+  frontend:
+    build:
+      context: .
+      target: frontend
+    container_name: user-crud-frontend
+    profiles: [ "dev" ]
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
